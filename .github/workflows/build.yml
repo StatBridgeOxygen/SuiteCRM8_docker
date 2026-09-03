@@ -1,6 +1,9 @@
 name: Build And Push Suite CRM
 
 on:
+  schedule:
+    # Runs at 09:00 UTC every Monday
+    - cron: "0 9 * * 1"
   workflow_dispatch:
 
 jobs:
