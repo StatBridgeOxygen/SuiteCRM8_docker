@@ -46,13 +46,12 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 RUN a2dissite 000-default.conf
 
 WORKDIR /var/www/html/
-COPY ./www/startup.sh /var/www/html/
 RUN chown -R www-data:www-data .
 RUN chmod -R 755 .
 
 RUN apt-get install -y zip wget
 
 #CMD ["apachectl", "-D", "FOREGROUND"]
-CMD pwd; ls -lah; sh startup.sh
+CMD sh startup.sh
 
 EXPOSE 80 443
