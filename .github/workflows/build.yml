@@ -1,6 +1,8 @@
 name: Build And Push Suite CRM
 
 on:
+  push:
+    branches: ["master"]
   schedule:
     # Runs at 09:00 UTC every Monday
     - cron: "0 9 * * 1"
