@@ -22,7 +22,7 @@ RUN apt-get -y update
 RUN apt-get install -y php8.2 libapache2-mod-php8.2
 RUN apt-get install -y php8.2-fpm libapache2-mod-fcgid
 RUN apt-get install -y php8.2-mysql
-RUN apt-get install -y php8.2-curl php8.2-intl php8.2-zip php8.2-imap php8.2-gd 
+RUN apt-get install -y php8.2-curl php8.2-intl php8.2-zip php8.2-imap php8.2-gd
 RUN apt-get -y update
 RUN apt-get install -y php8.2-soap php8.2-ldap
 
@@ -48,6 +48,8 @@ RUN a2dissite 000-default.conf
 WORKDIR /var/www/html/
 RUN chown -R www-data:www-data .
 RUN chmod -R 755 .
+
+COPY ./www/startup.sh /var/www/html/
 
 RUN apt-get install -y zip wget
 
